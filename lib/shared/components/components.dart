@@ -197,3 +197,86 @@ Widget buildProductItems( model,context,{bool isOldPrice=true})=>Padding(
     ),
   ),
 );
+
+Widget buildSearchItems( model,context,{bool isOldPrice=true})=>Padding(
+  padding: const EdgeInsets.all(20.0),
+  child: Container(
+    width: double.infinity,
+    height: 150,
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Stack(
+          alignment: Alignment.bottomLeft,
+          children: [
+            Image(image: NetworkImage(model.image.toString()),
+              width: 120,
+              height: 120,
+
+            ),
+            if(model.discount != 0 && isOldPrice && model.price!= model.oldPrice  )
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                color: Colors.red,
+                child: const Text("DISCOUNT",
+                  style: TextStyle(color: Colors.white,
+                      fontSize: 14
+                  ),),
+              )
+          ],
+        ),
+        const SizedBox(width:5 ,),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                model.name.toString(),
+                style:  TextStyle(fontWeight: FontWeight.bold),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const Spacer(),
+              Row(
+                children: [
+                  Text(
+                    model.price.toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold,
+                        color: defaultColor),
+
+                  ),
+                  const SizedBox(width: 5,),
+                  if(model.discount != 0 && isOldPrice && model.price!= model.oldPrice  )
+                    Text(
+                      model.oldPrice.toString(),
+                      style:const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                          decoration: TextDecoration.lineThrough),
+                    ),
+                  const Spacer(),
+                  // IconButton(
+                  //   icon:  CircleAvatar(
+                  //       radius: 17,
+                  //       backgroundColor:
+                  //       ShopCubit.get(context)!.favourites[model.id]==true ?defaultColor:Colors.grey,
+                  //       child:const Icon(Icons.favorite_border,
+                  //         size: 17,
+                  //         color: Colors.white,
+                  //       )),
+                  //   onPressed: (){
+                  //
+                  //     ShopCubit.get(context)!. changeFavourites(model.id!);
+                  //   },
+                  // ),
+
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  ),
+);

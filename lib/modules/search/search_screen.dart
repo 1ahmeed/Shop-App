@@ -5,7 +5,7 @@ import 'package:shop_app/layout/cubit/states.dart';
 import 'package:shop_app/modules/search/cubit/cubit.dart';
 import 'package:shop_app/modules/search/cubit/states.dart';
 import 'package:shop_app/shared/components/components.dart';
-
+///search
 
 class SearchScreen extends StatelessWidget {
   var formKey=GlobalKey<FormState>();
@@ -66,7 +66,7 @@ class SearchScreen extends StatelessWidget {
                       Expanded(
                         child: ListView.separated(
                             physics:const BouncingScrollPhysics(),
-                            itemBuilder: (context, index) => buildProductItems(
+                            itemBuilder: (context, index) => buildSearchItems(
                                 ShopSearchCubit.get(context)?.searchModel.data!.data[index],
                                 context,isOldPrice: false ),
                             separatorBuilder: (context, index) =>const SizedBox(height: 20,),

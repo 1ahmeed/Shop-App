@@ -46,11 +46,10 @@ ThemeData darkTheme=ThemeData(
 ThemeData lightTheme= ThemeData(
     primarySwatch: defaultColor,
     scaffoldBackgroundColor:Colors.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
         titleSpacing: 20.0,
         backgroundColor: Colors.white,
         elevation: 0.0,
-        backwardsCompatibility: false,
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.dark,
           statusBarColor: Colors.white,
