@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/layout/cubit/cubit.dart';
-import 'package:shop_app/layout/cubit/states.dart';
 import 'package:shop_app/modules/search/cubit/cubit.dart';
 import 'package:shop_app/modules/search/cubit/states.dart';
-import 'package:shop_app/shared/components/components.dart';
-///search
+import '../../shared/components/widgets/build_search_items.dart';
+import '../../shared/components/widgets/custom_text_form_field.dart';
 
 class SearchScreen extends StatelessWidget {
   var formKey=GlobalKey<FormState>();
@@ -28,7 +26,7 @@ class SearchScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    defaultTextField(
+                    CustomTextFormField(
                         controller: searchController,
                         keyboard:  TextInputType.text,
                         validate: (v) {
@@ -66,9 +64,9 @@ class SearchScreen extends StatelessWidget {
                       Expanded(
                         child: ListView.separated(
                             physics:const BouncingScrollPhysics(),
-                            itemBuilder: (context, index) => buildSearchItems(
-                                ShopSearchCubit.get(context)?.searchModel.data!.data[index],
-                                context,isOldPrice: false ),
+                            itemBuilder: (context, index) => BuildSearchItem(
+                              searchProduct:ShopSearchCubit.get(context)?.searchModel.data!.data[index],
+                                isOldPrice: false ),
                             separatorBuilder: (context, index) =>const SizedBox(height: 20,),
                             itemCount: ShopSearchCubit.get(context)!.searchModel.data!.data.length),
                       ),

@@ -40,7 +40,7 @@ class ShopCubit extends Cubit<ShopStates> {
   }
 
   HomeModel? homeModel;
-  Map<int,bool>favourites= {};
+  Map<int,bool> favourites={};
   void getHomeData(){
     emit(ShopLoadingHomeDataStates());
     DioHelper.getData(
@@ -163,6 +163,7 @@ class ShopCubit extends Cubit<ShopStates> {
       print(error.toString());
     });
   }
+
 
 
 }

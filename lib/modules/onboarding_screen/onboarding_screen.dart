@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/modules/login/login_screen.dart';
-import 'package:shop_app/shared/components/components.dart';
 import 'package:shop_app/shared/network/local/cache_helper.dart';
 import 'package:shop_app/shared/styles/colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class BoardingModel {
-  final String image;
-  final String title;
-  final String body;
+import '../../models/boarding_model.dart';
+import '../../shared/components/widgets/build_boarding_item.dart';
+import '../../shared/components/widgets/custom_navigation_and_finish.dart';
+import '../../shared/components/widgets/custom_text_button.dart';
 
-  BoardingModel({
-    required this.body,
-    required this.title,
-    required this.image,
-  });
-}
+// class BoardingModel {
+//   final String image;
+//   final String title;
+//   final String body;
+//
+//   BoardingModel({
+//     required this.body,
+//     required this.title,
+//     required this.image,
+//   });
+// }
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -61,7 +65,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          defaultTextButton(
+          CustomTextButton(
             onPressed: () {
               submit();
               },
@@ -90,7 +94,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 physics:const BouncingScrollPhysics(),
                 controller: boardController,
                 itemBuilder: (context, index) =>
-                    buildBoardingItem(boarding[index]),
+                    BuildBoardingItem(boardingModel:boarding[index]),
                 itemCount: boarding.length,
               ),
             ),
@@ -142,38 +146,4 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       ),
     );
   }
-
-  Widget buildBoardingItem(BoardingModel model) => Column(
-
-        children: [
-          Expanded(child: Image(image: AssetImage(model.image))),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                model.title,
-                style:const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Text(
-                model.body,
-                style:const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ],
-      );
 }

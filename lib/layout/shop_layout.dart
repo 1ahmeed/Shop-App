@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/layout/cubit/cubit.dart';
 import 'package:shop_app/layout/cubit/states.dart';
 import 'package:shop_app/modules/search/search_screen.dart';
-import 'package:shop_app/shared/components/components.dart';
 import 'package:shop_app/shared/styles/colors.dart';
+
+import '../shared/components/widgets/custom_navigation_.dart';
 
 
 class ShopLayout extends StatelessWidget {

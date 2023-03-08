@@ -4,9 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/layout/cubit/cubit.dart';
 import 'package:shop_app/layout/shop_layout.dart';
 import 'package:shop_app/modules/register/cubit/cubit.dart';
-import 'package:shop_app/shared/components/components.dart';
 import 'package:shop_app/shared/components/constants.dart';
 import 'package:shop_app/shared/network/local/cache_helper.dart';
+import '../../shared/components/widgets/custom_button.dart';
+import '../../shared/components/widgets/custom_navigation_and_finish.dart';
+import '../../shared/components/widgets/custom_show_toast.dart';
+import '../../shared/components/widgets/custom_text_form_field.dart';
 import 'cubit/states.dart';
 
 class ShopRegisterScreen extends StatelessWidget {
@@ -79,7 +82,7 @@ class ShopRegisterScreen extends StatelessWidget {
                         const SizedBox(
                           height: 40,
                         ),
-                        defaultTextField(
+                        CustomTextFormField(
                             controller: nameController,
                             keyboard: TextInputType.name,
                             validate: (value) {
@@ -93,7 +96,7 @@ class ShopRegisterScreen extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        defaultTextField(
+                        CustomTextFormField(
                             controller: emailController,
                             keyboard: TextInputType.emailAddress,
                             validate: (value) {
@@ -107,7 +110,7 @@ class ShopRegisterScreen extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        defaultTextField(
+                        CustomTextFormField(
                             controller: phoneController,
                             keyboard: TextInputType.phone,
                             validate: (value) {
@@ -121,7 +124,7 @@ class ShopRegisterScreen extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        defaultTextField(
+                        CustomTextFormField(
                             controller: passwordController,
                             keyboard: TextInputType.visiblePassword,
                             suffixIcon: ShopRegisterCubit.get(context)?.suffix,
@@ -147,7 +150,7 @@ class ShopRegisterScreen extends StatelessWidget {
                         ),
                         ConditionalBuilder(
                           condition:  state is! ShopRegisterLoadingStates,
-                          builder: (context) => defaultButton(
+                          builder: (context) => CustomButton(
                             function: () {
                               if (formKey.currentState!.validate()) {
                                 ShopRegisterCubit.get(context)?.userRegister(

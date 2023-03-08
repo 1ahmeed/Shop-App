@@ -1,7 +1,7 @@
 
 
 import 'package:shop_app/modules/login/login_screen.dart';
-import 'package:shop_app/shared/components/components.dart';
+import 'package:shop_app/shared/components/widgets/custom_navigation_and_finish.dart';
 
 import '../network/local/cache_helper.dart';
 

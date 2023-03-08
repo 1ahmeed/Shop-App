@@ -61,3 +61,4 @@ class ShopErrorUpdateUserStates extends ShopStates{
   ShopErrorUpdateUserStates(this.error);
 }
 
+

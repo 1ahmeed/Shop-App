@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/layout/cubit/cubit.dart';
 import 'package:shop_app/layout/cubit/states.dart';
-import 'package:shop_app/shared/components/components.dart';
 import 'package:shop_app/shared/components/constants.dart';
 import 'package:shop_app/shared/styles/colors.dart';
+import '../../shared/components/widgets/custom_button.dart';
+import '../../shared/components/widgets/custom_show_toast.dart';
+import '../../shared/components/widgets/custom_text_form_field.dart';
 
 class SettingScreen extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
@@ -16,9 +18,7 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ShopCubit, ShopStates>(
-      listener: (context, state) {
-
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         var model = ShopCubit.get(context)?.userModel;
        if(model !=null) {
@@ -61,7 +61,7 @@ class SettingScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      defaultTextField(
+                      CustomTextFormField(
                         controller: nameController,
                         keyboard: TextInputType.name,
                         validate: (String? value) {
@@ -75,7 +75,7 @@ class SettingScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      defaultTextField(
+                      CustomTextFormField(
                         controller: emailController,
                         keyboard: TextInputType.emailAddress,
                         validate: (String? value) {
@@ -90,7 +90,7 @@ class SettingScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      defaultTextField(
+                      CustomTextFormField(
                         controller: phoneController,
                         keyboard: TextInputType.phone,
                         validate: (String? value) {
@@ -105,7 +105,7 @@ class SettingScreen extends StatelessWidget {
                      const SizedBox(
                         height: 20,
                       ),
-                      defaultButton(
+                      CustomButton(
                           function: () {
                             if(formKey.currentState!.validate())
                             {

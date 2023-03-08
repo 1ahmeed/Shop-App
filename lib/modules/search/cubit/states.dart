@@ -14,3 +14,4 @@ class ShopSearchErrorState extends SearchStates
   final String error;
   ShopSearchErrorState(this.error);
 }
+

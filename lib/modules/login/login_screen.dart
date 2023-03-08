@@ -6,9 +6,15 @@ import 'package:shop_app/layout/shop_layout.dart';
 import 'package:shop_app/modules/login/cubit/cubit.dart';
 import 'package:shop_app/modules/login/cubit/states.dart';
 import 'package:shop_app/modules/register/register_screen.dart';
-import 'package:shop_app/shared/components/components.dart';
 import 'package:shop_app/shared/components/constants.dart';
 import 'package:shop_app/shared/network/local/cache_helper.dart';
+
+import '../../shared/components/widgets/custom_button.dart';
+import '../../shared/components/widgets/custom_navigation_.dart';
+import '../../shared/components/widgets/custom_navigation_and_finish.dart';
+import '../../shared/components/widgets/custom_show_toast.dart';
+import '../../shared/components/widgets/custom_text_button.dart';
+import '../../shared/components/widgets/custom_text_form_field.dart';
 
 
 class ShopLoginScreen extends StatelessWidget {
@@ -27,8 +33,6 @@ class ShopLoginScreen extends StatelessWidget {
           listener: (context, state) {
             if(state is ShopLoginSuccessStates){
               if(state.loginModel!.status! ){
-                // print(state.loginModel?.message);
-                // print(state.loginModel?.data?.token);
                 showToast(
                     text: state.loginModel!.message!,
                     state:ToastStates.success);
@@ -81,21 +85,23 @@ class ShopLoginScreen extends StatelessWidget {
                           const SizedBox(
                             height: 40,
                           ),
-                          defaultTextField(
+                          CustomTextFormField(
                               controller: emailController,
                               keyboard: TextInputType.emailAddress,
                               validate: (value) {
                                 if (value!.isEmpty) {
                                   return "please enter your email address";
                                 }
-                                return null;
+                                else if (!value.contains("@") || !value.contains("."))
+                                  return " email must have '@' and '.'";
+
                               },
                               label: "Email Address",
                               prefixIcon: Icons.email_outlined),
                           const SizedBox(
                             height: 20,
                           ),
-                          defaultTextField(
+                          CustomTextFormField(
                               controller: passwordController,
                               keyboard: TextInputType.visiblePassword,
                               suffixIcon: ShopLoginCubit.get(context)?.suffix,
@@ -116,7 +122,9 @@ class ShopLoginScreen extends StatelessWidget {
                                 if (value!.isEmpty) {
                                   return "password is too short";
                                 }
-                                return null;
+                                if (value.length < 6)
+                                  return ' password must have more than 6 nums';
+
                               },
                               label: "Password",
                               prefixIcon: Icons.lock),
@@ -125,7 +133,7 @@ class ShopLoginScreen extends StatelessWidget {
                           ),
                           ConditionalBuilder(
                             condition: state is! ShopLoginLoadingStates,
-                            builder: (context) => defaultButton(
+                            builder: (context) => CustomButton(
                               function: () {
                                 if (formKey.currentState!.validate()) {
                                   ShopLoginCubit.get(context)?.userLogin(
@@ -143,7 +151,7 @@ class ShopLoginScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Text("Don\'t have an account?"),
-                              defaultTextButton(
+                              CustomTextButton(
                                 onPressed: () {
                                   navigatorTo(context, ShopRegisterScreen());
                                 },
