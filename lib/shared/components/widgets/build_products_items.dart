@@ -5,10 +5,10 @@ import '../../../models/home_models.dart';
 import '../../styles/colors.dart';
 
 class BuildProductItems  extends StatelessWidget {
-  BuildProductItems({Key? key,
+  const BuildProductItems({super.key,
   this.productModel
   }) ;
-  ProductModel? productModel;
+  final ProductModel? productModel;
   @override
   Widget build(BuildContext context) {
     return Column(

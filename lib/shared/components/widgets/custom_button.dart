@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends  StatelessWidget {
-  CustomButton({
-    Key? key,
+  const CustomButton({super.key,
     this.wide=double.infinity,
     this.background=Colors.deepPurple,
     required this.function,
     required this.text,
 
   });
-  double wide = double.infinity;
-  Color background = Colors.deepPurple;
-  VoidCallback function;
-  String text;
+  final double wide ;
+  final Color background ;
+  final VoidCallback function;
+  final String text;
 
   @override
   Widget build(BuildContext context) {

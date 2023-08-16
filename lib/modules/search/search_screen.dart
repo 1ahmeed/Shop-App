@@ -6,8 +6,8 @@ import '../../shared/components/widgets/build_search_items.dart';
 import '../../shared/components/widgets/custom_text_form_field.dart';
 
 class SearchScreen extends StatelessWidget {
-  var formKey=GlobalKey<FormState>();
-  var searchController=TextEditingController();
+  final formKey=GlobalKey<FormState>();
+  final searchController=TextEditingController();
 
   SearchScreen({super.key});
   @override

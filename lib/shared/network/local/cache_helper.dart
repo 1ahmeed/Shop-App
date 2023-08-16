@@ -20,6 +20,7 @@ class CacheHelper{
 })async{
     return await sharedPreferences?.setBool(key, value);
   }
+
   static dynamic getData({
     required String key,
   }){

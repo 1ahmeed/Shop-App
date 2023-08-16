@@ -14,11 +14,11 @@ import 'cubit/states.dart';
 
 class ShopRegisterScreen extends StatelessWidget {
 
-  var formKey = GlobalKey<FormState>();
-  var nameController = TextEditingController();
-  var passwordController = TextEditingController();
-  var emailController = TextEditingController();
-  var phoneController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
+  final passwordController = TextEditingController();
+  final emailController = TextEditingController();
+  final phoneController = TextEditingController();
 
   ShopRegisterScreen({super.key});
 
@@ -67,7 +67,7 @@ class ShopRegisterScreen extends StatelessWidget {
                         Text("REGISTER",
                             style: Theme.of(context)
                                 .textTheme
-                                .headline4
+                                .headlineMedium
                                 ?.copyWith(
                               color: Colors.deepPurple,
                               fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class ShopRegisterScreen extends StatelessWidget {
                           "Register now to browse our hot offers",
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1
+                              .bodyLarge
                               ?.copyWith(color: Colors.grey),
                         ),
                         const SizedBox(

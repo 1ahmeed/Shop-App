@@ -19,9 +19,11 @@ import '../../shared/components/widgets/custom_text_form_field.dart';
 
 class ShopLoginScreen extends StatelessWidget {
 
-  var formKey = GlobalKey<FormState>();
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
+ final formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  ShopLoginScreen({super.key});
 
 
 
@@ -70,7 +72,7 @@ class ShopLoginScreen extends StatelessWidget {
                           Text("LOGIN",
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline4
+                                  .headlineMedium
                                   ?.copyWith(
                                     color: Colors.deepPurple,
                                     fontWeight: FontWeight.bold,
@@ -79,7 +81,7 @@ class ShopLoginScreen extends StatelessWidget {
                             "login now to browse our hot offers",
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1
+                                .bodyLarge
                                 ?.copyWith(color: Colors.grey),
                           ),
                           const SizedBox(
@@ -92,8 +94,11 @@ class ShopLoginScreen extends StatelessWidget {
                                 if (value!.isEmpty) {
                                   return "please enter your email address";
                                 }
-                                else if (!value.contains("@") || !value.contains("."))
+                                else if (!value.contains("@") || !value.contains(".")) {
                                   return " email must have '@' and '.'";
+                                }else{
+                                  return null;
+                                }
 
                               },
                               label: "Email Address",
@@ -118,12 +123,14 @@ class ShopLoginScreen extends StatelessWidget {
                                   );
                                 }
                               },
-                              validate: (value) {
+                              validate: (String? value) {
                                 if (value!.isEmpty) {
                                   return "password is too short";
                                 }
-                                if (value.length < 6)
+                                if (value.length < 6) {
                                   return ' password must have more than 6 nums';
+                                }
+                                return null;
 
                               },
                               label: "Password",
@@ -150,7 +157,7 @@ class ShopLoginScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Text("Don\'t have an account?"),
+                              const Text("Don't have an account?"),
                               CustomTextButton(
                                 onPressed: () {
                                   navigatorTo(context, ShopRegisterScreen());

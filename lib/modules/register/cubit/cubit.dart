@@ -1,6 +1,5 @@
 
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/models/login_model.dart';
@@ -23,7 +22,7 @@ class ShopRegisterCubit extends Cubit<ShopRegisterStates>{
 }){
     emit(ShopRegisterLoadingStates());
     DioHelper.postData(
-        url: REGISTER,
+        url: register,
         token: '',
         data: {
           'name':name,
@@ -33,14 +32,11 @@ class ShopRegisterCubit extends Cubit<ShopRegisterStates>{
 
 
         }).then((value) {
-          print(value.data);
+      debugPrint(value.data);
          loginModel= ShopLoginModel.fromJson(value.data);
-        print(loginModel?.status);
-          print(loginModel?.message);
-         print(loginModel?.data?.token);
+      debugPrint(loginModel?.data?.token);
           emit(ShopRegisterSuccessStates(loginModel));
     }).catchError((error){
-      print(error.toString());
       emit(ShopRegisterErrorStates(error.toString()));
     });
 

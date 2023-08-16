@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/models/boarding_model.dart';
 
 class BuildBoardingItem extends  StatelessWidget {
-   BuildBoardingItem({Key? key,
+     const BuildBoardingItem({super.key,
    this.boardingModel
    });
-BoardingModel? boardingModel;
+final BoardingModel? boardingModel;
   @override
   Widget build(BuildContext context) {
     return Column(

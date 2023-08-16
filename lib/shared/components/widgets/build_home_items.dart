@@ -9,13 +9,13 @@ import '../../styles/colors.dart';
 import 'build_products_items.dart';
 
 class BuildHomeItems extends StatelessWidget {
-  BuildHomeItems({Key? key,
+  const BuildHomeItems({super.key,
      this.categoriesModel,
 this.homeModel
    }) ;
 
-  HomeModel? homeModel;
-  CategoriesModel? categoriesModel;
+ final HomeModel? homeModel;
+  final CategoriesModel? categoriesModel;
   @override
   Widget build(BuildContext context) {
     return   SingleChildScrollView(

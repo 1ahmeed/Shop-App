@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../models/categories_model.dart';
 
 class BuildCategoriesItems extends  StatelessWidget {
-   BuildCategoriesItems({Key? key,
+  const BuildCategoriesItems({super.key,
    this.dataModel
    }) ;
-   DataModel? dataModel;
+  final  DataModel? dataModel;
 
   @override
   Widget build(BuildContext context) {

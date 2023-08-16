@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/widgets.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  CustomTextFormField({
-    Key? key,
+  const CustomTextFormField({super.key,
     required this.controller,
     required this.keyboard,
     required this.validate,
@@ -20,19 +18,21 @@ class CustomTextFormField extends StatelessWidget {
     this.colorIcon,
   });
 
-  TextEditingController controller;
-  TextInputType keyboard;
-  String? Function(String?)? validate;
-  void Function(String)? onSubmit;
-  void Function(String)? onchange;
-  void Function()? onTap;
-  String label;
-  bool isClickable = true;
-  dynamic prefixIcon;
-  void Function()? suffixPressed;
-  dynamic suffixIcon;
-  bool isPassword = false;
-  Color? colorIcon;
+  final TextEditingController controller;
+  final TextInputType keyboard;
+  final String? Function(String?)? validate;
+  final void Function(String)? onSubmit;
+  final void Function(String)? onchange;
+  final void Function()? onTap;
+  final String label;
+  final bool isClickable;
+
+  final dynamic prefixIcon;
+  final void Function()? suffixPressed;
+  final dynamic suffixIcon;
+  final bool isPassword;
+
+  final Color? colorIcon;
 
   // Color? colorBorder;
 

@@ -21,15 +21,15 @@ void main() async {
   await CacheHelper.init();Widget? widget;
   token = CacheHelper.getData(key: "token");
   bool? onBoarding = CacheHelper.getData(key: "onBoarding");
-  print(token);
+  debugPrint(token);
   if (onBoarding != null) {
-    if (token != null)
-      widget = ShopLayout();
-    else {
+    if (token != null) {
+      widget = const ShopLayout();
+    } else {
       widget = ShopLoginScreen();
     }
   }else{
-    widget= OnBoardingScreen();
+    widget= const OnBoardingScreen();
   }
 
   runApp(MyApp(
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
   final bool? isDark;
   final Widget? startWidget;
 
-  MyApp({this.isDark, this.startWidget});
+  const MyApp({super.key, this.isDark, this.startWidget});
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,12 @@
 class FavouritesModel {
   late bool? status;
-  late Null? message;
+  // late void message;
  late Data? data;
 
 
   FavouritesModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
-    message = json['message'];
+    // message = json['message'];
     data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
@@ -88,7 +88,7 @@ class Product {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
+    final Map<String, dynamic> data =  <String, dynamic>{};
     data['id'] = id;
     data['price'] = price;
     data['old_price'] = oldPrice;

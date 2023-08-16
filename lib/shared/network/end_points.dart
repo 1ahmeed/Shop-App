@@ -1,9 +1,9 @@
-const LOGIN= 'login';
-const HOME= 'home';
-const GET_CATEGORIES='categories';
-const FAVOURITES='favorites';
+const login= 'login';
+const home= 'home';
+const getCategories='categories';
+const favourite='favorites';
 
-const PROFILE='profile';
-const REGISTER='register';
-const UPDATE_PROFILE='update-profile';
-const SEARCH='products/search';
+const profile='profile';
+const register='register';
+const updateProfile='update-profile';
+const search='products/search';

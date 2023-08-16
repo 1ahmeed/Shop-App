@@ -10,10 +10,12 @@ import '../../shared/components/widgets/custom_show_toast.dart';
 import '../../shared/components/widgets/custom_text_form_field.dart';
 
 class SettingScreen extends StatelessWidget {
-  var formKey = GlobalKey<FormState>();
-  var nameController = TextEditingController();
-  var emailController = TextEditingController();
-  var phoneController = TextEditingController();
+  final  formKey = GlobalKey<FormState>();
+  final  nameController = TextEditingController();
+  final  emailController = TextEditingController();
+  final  phoneController = TextEditingController();
+
+  SettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +70,7 @@ class SettingScreen extends StatelessWidget {
                           if (value!.isEmpty) {
                             return 'Name Must Not Be Empty ';
                           }
+                          return null;
                         },
                         label: 'Name',
                         prefixIcon: Icons.person,

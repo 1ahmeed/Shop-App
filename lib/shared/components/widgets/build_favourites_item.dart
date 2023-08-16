@@ -5,17 +5,17 @@ import '../../../models/favourites_model.dart';
 import '../../styles/colors.dart';
 
 class BuildFavouritesItem extends StatelessWidget {
-   BuildFavouritesItem({Key? key,
+   const BuildFavouritesItem({super.key,
    this.isOldPrice=true,
 this.favouritesProduct
    });
-   Product? favouritesProduct;
-   bool? isOldPrice;
+   final Product? favouritesProduct;
+   final bool? isOldPrice;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         height: 150,
         child: Row(
@@ -47,7 +47,7 @@ this.favouritesProduct
                 children: [
                   Text(
                     favouritesProduct!.name.toString(),
-                    style:  TextStyle(fontWeight: FontWeight.bold),
+                    style:  const TextStyle(fontWeight: FontWeight.bold),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -94,6 +94,6 @@ this.favouritesProduct
           ],
         ),
       ),
-    );;
+    );
   }
 }

@@ -7,8 +7,6 @@ import 'package:shop_app/shared/styles/colors.dart';
 
 ThemeData darkTheme=ThemeData(
     scaffoldBackgroundColor: HexColor('333739'),
-    primarySwatch: defaultColor,
-    backgroundColor: HexColor('333739'),
     appBarTheme: AppBarTheme(
       backgroundColor:  HexColor('333739'),
       titleSpacing: 20.0,
@@ -17,12 +15,12 @@ ThemeData darkTheme=ThemeData(
         statusBarIconBrightness: Brightness.light,
         statusBarColor: HexColor('333739'),
       ),
-      titleTextStyle: TextStyle(
+      titleTextStyle: const TextStyle(
         color: Colors.white,
         fontSize: 18.0,
         fontWeight: FontWeight.bold,
       ),
-      iconTheme: IconThemeData(
+      iconTheme: const IconThemeData(
         color: Colors.white,
       ),
     ),
@@ -33,14 +31,14 @@ ThemeData darkTheme=ThemeData(
       unselectedItemColor: Colors.grey,
       backgroundColor: HexColor('333739'),
     ),
-    textTheme: TextTheme(
-        bodyText1: TextStyle(
+    textTheme: const TextTheme(
+        bodyLarge: TextStyle(
           color: Colors.white,
           fontSize: 18.0,
           fontWeight: FontWeight.w600,
 
         )
-    )
+    ), colorScheme: ColorScheme.fromSwatch(primarySwatch: defaultColor).copyWith(background: HexColor('333739'))
 );
 
 ThemeData lightTheme= ThemeData(
@@ -63,14 +61,14 @@ ThemeData lightTheme= ThemeData(
           color: Colors.black,
         )
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       selectedItemColor: defaultColor,
       unselectedItemColor: Colors.grey,
       backgroundColor: Colors.white,
     ),
-    textTheme: TextTheme(
-        bodyText1: TextStyle(
+    textTheme: const TextTheme(
+        bodyLarge: TextStyle(
           fontSize: 18.0,
           fontWeight: FontWeight.w600,
           color: Colors.black,

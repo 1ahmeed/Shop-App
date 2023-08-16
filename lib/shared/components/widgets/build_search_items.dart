@@ -5,19 +5,19 @@ import '../../../layout/cubit/cubit.dart';
 import '../../styles/colors.dart';
 
 class BuildSearchItem extends  StatelessWidget {
-   BuildSearchItem({Key? key,
+   const BuildSearchItem({super.key,
    this.searchProduct,
-     this.isOldPrice,
+     this.isOldPrice=true,
    });
 
-  Product? searchProduct;
-  bool? isOldPrice=true;
+  final Product? searchProduct;
+   final bool? isOldPrice;
 
   @override
   Widget build(BuildContext context) {
     return  Padding(
       padding: const EdgeInsets.all(20.0),
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         height: 150,
         child: Row(
@@ -49,7 +49,7 @@ class BuildSearchItem extends  StatelessWidget {
                 children: [
                   Text(
                     searchProduct!.name.toString(),
-                    style:  TextStyle(fontWeight: FontWeight.bold),
+                    style:  const TextStyle(fontWeight: FontWeight.bold),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
